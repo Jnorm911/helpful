@@ -1,0 +1,2 @@
+Add this to .gitconfig
+slog = log --abbrev-commit --color=auto --decorate=short --pretty=oneline --graph --branches=* --remotes=* --tags=*  
