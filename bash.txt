@@ -1,0 +1,9 @@
+-Show hidden files:
+ls -a
+-Show only hidden files:
+ls -ld .?* 
+-refresh terminal:
+exec /bin/bash -l 
+
+*permissions* 
+  chmod ugo+rx
