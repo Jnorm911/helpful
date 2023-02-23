@@ -17,11 +17,51 @@ git rev-parse --short HEAD
 -Delete Completely last push 
 git reset --hard HEAD~(optional#here)
 
+# Others
+
 -remove unnecessary branches in remote
 git fetch --all --prune
 
+
+
 Add this to .gitconfig
-slog = log --abbrev-commit --color=auto --decorate=short --pretty=oneline --graph --branches=* --remotes=* --tags=*  
+[alias]
+  slog = log --abbrev-commit --color=auto --decorate=short --pretty=oneline --graph --branches=* --remotes=* --tags=*  
+  -quickly amend the last commit
+  fix = commit --all --verbose --amend --no-edit
+[branch]
+  # this sets the branch to automatically track it's origin branch
+  autoSetupMerge = always
+  autoSetupRebase = always
+[color]
+  branch = auto
+  decorate = auto
+  diff = auto
+  grep = auto
+  interactive = auto
+  log = auto
+  showbranch = auto
+  status = auto
+  ui = auto
+[core]
+  editor = code # Use your preferred editor here
+  eol = lf
+  compression = 0
+  ignorecase = true
+[diff]
+  algorithm = histogram
+  autoRefreshIndex = true
+  colorMoved = dimmed-zebra
+  colorMovedWS = allow-indentation-change
+  indentHeuristic = true
+  mnemonicprefix = true
+  renames = true
+[grep]
+  extendedRegexp = true
+  lineNumber = true
+[rebase]
+  stat = true
+	autoSquash = true
 
 ## DON'T USE git REVERT ##
 ## DON'T git clone with PAT in terminal and URL ##
@@ -54,3 +94,58 @@ git push yourOriginName :yourBranchName
 # Everything should be linear
 git slog
 git reflog
+
+##.gitignore ##
+.classpath
+.project
+.settings/
+target/
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IntelliJ
+.idea
+ 
+# VSCode
+*.code-workspace
+.vscode
+
+# Python
+.python-path
+__pycache__
