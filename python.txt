@@ -1,3 +1,7 @@
+#Find current file path at any time#
+  import os
+  os.getcwd()
+
 ##Conda
 #ENV#
 -create: 
