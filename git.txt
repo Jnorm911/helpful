@@ -1,2 +1,20 @@
+#bypass pre-commit
+git commit --no-verify -m "commit message"
+
+#How to commit
+pre-commit install (will verify project before the commit happens)
+git add -A (adds all changed files to commit)
+git commit -m "message about update here" (commit with message)
+git push -u origin branchName (push/sync)
+
+# Remove last public commit # ### ONLY USE IF NO NEW FILES HAVE BEEN ADDED ###
+git revert HEAD
+
+# Get current head hash (short) #
+git rev-parse --short HEAD
+
+# Delete Completely last push #
+git reset --hard HEAD~
+
 Add this to .gitconfig
 slog = log --abbrev-commit --color=auto --decorate=short --pretty=oneline --graph --branches=* --remotes=* --tags=*  
