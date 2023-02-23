@@ -1,20 +1,56 @@
-#bypass pre-commit
-git commit --no-verify -m "commit message"
+#Git visualization
+https://git-school.github.io/visualizing-git/
 
-#How to commit
+#Commit
 pre-commit install (will verify project before the commit happens)
 git add -A (adds all changed files to commit)
 git commit -m "message about update here" (commit with message)
 git push -u origin branchName (push/sync)
 
-# Remove last public commit # ### ONLY USE IF NO NEW FILES HAVE BEEN ADDED ###
-git revert HEAD
+-bypass pre-commit
+git commit --no-verify -m "commit message"
 
-# Get current head hash (short) #
+# Undo a commit
+
+-Get current head hash(short)
 git rev-parse --short HEAD
+-Delete Completely last push 
+git reset --hard HEAD~(optional#here)
 
-# Delete Completely last push #
-git reset --hard HEAD~
+-remove unnecessary branches in remote
+git fetch --all --prune
 
 Add this to .gitconfig
 slog = log --abbrev-commit --color=auto --decorate=short --pretty=oneline --graph --branches=* --remotes=* --tags=*  
+
+## DON'T USE git REVERT ##
+## DON'T git clone with PAT in terminal and URL ##
+
+## My PR Mover ##
+# check that upstream is origin of the old repo
+git config --get branch.main.remote
+# This should be the origin of the old repo
+git remote rename origin yourOriginName
+# Check the status of repo
+git status
+# Add the new repo remote in
+git remote add origin https://github.com/uhg-internal/pzn-ai.git
+# check both remotes are in
+git remote -v
+# Optional steps #
+git checkout yourOriginName/yourBranchName
+git branch -D yourBranchName
+git checkout -b yourBranchName
+# If git slog looks correct ## numberOfCommits i.e how many commits are in the pr since the last merge point
+git rebase --onto origin/yourBranchName yourBranchName~numberOfCommits yourBranchName
+# pushing your work into the new repo part 1
+git push --set-upstream origin yourBranchName
+# verify the linearity of the branch
+git slog
+# pushing your work into the new repo part 2
+git push yourOriginName yourBranchName:yourBranchName
+# Alternative to the above step, you can remove the history if it's not relevant
+git push yourOriginName :yourBranchName
+# Everything should be linear
+git slog
+git reflog
