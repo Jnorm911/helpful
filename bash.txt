@@ -7,3 +7,14 @@ exec /bin/bash -l
 
 *permissions* 
   chmod ugo+rx
+  
+## .bash_profile
+alias chrome="open -a 'Google Chrome'"
+alias edge="open -a 'Microsoft Edge'"
+alias pip=pip3
+eval "$(/usr/local/bin/brew shellenv)"
+export BASH_SILENCE_DEPRECATION_WARNING=1
+PATH="/usr/local/bin/bash:${PATH}"
+export PATH
+
+## ADD .hushlogin to same directory as .bash_profile ##
