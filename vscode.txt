@@ -1,0 +1,9 @@
+## VSC SHORTCUTS ##
+
+Select entire line CTRL + L
+Shift + alt + F format html
+.classname tab
+.classname>.classNameChild
+(p>lorem20)*4
+wordwrap: alt + z
+change tag: f2
