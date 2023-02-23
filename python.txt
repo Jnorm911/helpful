@@ -1,0 +1,10 @@
+##Conda
+#ENV#
+-create: 
+conda create -n envName python=3.9
+-activate: 
+conda activate envName
+-deactivate:
+conda deactivate
+-remove: 
+conda env remove -n envName
