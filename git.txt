@@ -27,7 +27,7 @@ git fetch --all --prune
 Add this to .gitconfig
 [alias]
   slog = log --abbrev-commit --color=auto --decorate=short --pretty=oneline --graph --branches=* --remotes=* --tags=*  
-  -quickly amend the last commit
+  #quickly amend the last commit
   fix = commit --all --verbose --amend --no-edit
 [branch]
   # this sets the branch to automatically track it's origin branch
